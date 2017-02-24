@@ -101,8 +101,44 @@ Weapon.SingleBullet.prototype.fire = function (source) {
 //  Core game Loop: preload, create, update       //
 ////////////////////////////////////////////////////
 
-function preload() {
+function boot() {
+  /* Scale the game to keep aspect ratio untouched and 
+        always show the complete game */
+  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+  /* Landscape allowed, portrait not */
+  game.scale.forceOrientation(true, false);
+  // If the device is not a desktop, so it's a mobile device
+  if (!game.device.desktop) {
+    // Add a blue color to the page, to hide the white borders we might have
+    document.body.style.backgroundColor = '#3498db';
+    // Set the min and max width/height of the game
+    game.scale.minWidth = 400;
+    game.scale.minHeight = 170;
+    game.scale.maxWidth = 800;
+    game.scale.maxHeight = 340;
+    // Center the game on the screen
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+  }
+  else {
+    //Desktop device, so we can use higher max widths and heights
+    document.body.style.backgroundColor = '#3498db';
+    // Set the min and max width/height of the game
+    game.scale.minWidth = 400;
+    game.scale.minHeight = 170;
+    game.scale.maxWidth = 800;
+    game.scale.maxHeight = 340;
+    // Center the game on the screen
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+  }
+}
 
+function preload() {
+    
+    // Call boot function
+    boot();
+  
     game.load.image('background','assets/debug-grid-1920x1920.png');
     game.load.image('player','assets/player.png');
     game.load.image('pixel', 'assets/pixel.png');

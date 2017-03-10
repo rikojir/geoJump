@@ -17,6 +17,9 @@ var Weapon = {};
 var map;
 var layer;
 
+/* Checkpoint */
+var checkpoint = 0;
+
 
 /////////////////////////////////////////////////////////////////
 ///////////////////////     Bullet Setup    /////////////////////
@@ -344,6 +347,10 @@ function update() {
   
     if (player.body.velocity.x < 400) {
       player.body.velocity.x = 400;
+    }
+  
+    if (checkpoint === 0 && player.x > world.width/2) {
+      checkpoint = world.width/2;
     }
   
     playerDieCheck();

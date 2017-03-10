@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Geo);
+
+.hiddenText {
+  font-family: Geo;
+  visibility: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
